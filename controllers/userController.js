@@ -1,7 +1,7 @@
 const { User, Thought } = require('../models');
 
 module.exports = {
-    async getAllUsers(req, res) {
+    async allUsers(req, res) {
         try {
             const users = await User.find()
             res.json(users);
@@ -9,7 +9,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    async getSingleUser(req, res) {
+    async singleUser(req, res) {
         try {
             const user = await User.findOne({ _id: req.params.userId })
                 .select('-__v')
